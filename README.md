@@ -23,7 +23,7 @@ Follow the instructions on https://github.com/coq-community/templates to regener
 
 
 
-Port of the agdarsec total parser combinator library to Coq.
+Port of the agdarsec total parser combinator library to Rocq.
 
 ## Meta
 
@@ -32,7 +32,7 @@ Port of the agdarsec total parser combinator library to Coq.
 - Coq-community maintainer(s):
   - Wolfgang Meier ([**@womeier**](https://github.com/womeier))
 - License: [MIT License](LICENSE)
-- Compatible Coq versions: 8.16 or later
+- Compatible Coq versions: 9.0 or later
 - Additional dependencies: none
 - Coq namespace: `parseque`
 - Related publication(s):
@@ -60,7 +60,7 @@ make install
 
 ## Documentation
 
-This Coq library is a port of the [agdarsec](https://github.com/gallais/agdarsec)
+This Rocq library is a port of the [agdarsec](https://github.com/gallais/agdarsec)
 library for Agda. The core design of agdarsec is described in
 [this paper](https://gallais.github.io/pdf/agdarsec18.pdf), while
 [this blog post](https://gallais.github.io/blog/instrumenting-agdarsec)
