@@ -1,4 +1,4 @@
-From Coq Require Import List.
+From Stdlib Require Import List.
 
 Record NEList (A : Type) : Type :=
   MkNEList { head : A

@@ -1,4 +1,4 @@
-From Coq Require Import PeanoNat.
+From Stdlib Require Import PeanoNat.
 
 Definition View (As : nat -> Type) (A : Type) (n : nat) : Type :=
 match n with
@@ -16,7 +16,7 @@ match n return View As A n -> B n with
   | S n' => fun vw => uncurry (f _) vw
 end.
 
-From Coq Require Import Vector.
+From Stdlib Require Import Vector.
 
 #[global]
 Instance sizedVector {A : Type} : Sized (Vector.t A) A :=
@@ -32,7 +32,7 @@ Record SizedType {A : Type} (size : A -> nat) (n : nat) : Type :=
 
 Arguments MkSizedType {_} {_} {_}.
 
-From Coq Require Import List.
+From Stdlib Require Import List.
 Import ListNotations.
 
 Definition SizedList (A : Type) n := SizedType (@length A) n.

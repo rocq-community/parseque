@@ -1,4 +1,4 @@
-From Coq Require Import Ascii String List.
+From Stdlib Require Import Ascii String List.
 Import ListNotations.
 
 Definition String := list ascii.

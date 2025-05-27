@@ -1,5 +1,5 @@
 From parseque Require Import Running Parseque.
-From Coq Require Import Ascii String.
+From Stdlib Require Import Ascii String.
 
 Section ArithmeticLanguage.
 
