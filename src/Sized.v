@@ -16,15 +16,6 @@ match n return View As A n -> B n with
   | S n' => fun vw => uncurry (f _) vw
 end.
 
-From Coq Require Import Vector.
-
-#[global]
-Instance sizedVector {A : Type} : Sized (Vector.t A) A :=
-  MkSized (fun n => match n return Vector.t A n -> option (View (Vector.t A) A n) with
-    | O    => fun _ => None
-    | S n' => fun v => Some (hd v, tl v)
-  end).
-
 Record SizedType {A : Type} (size : A -> nat) (n : nat) : Type :=
   MkSizedType { value : A
               ; sized : size value = n
