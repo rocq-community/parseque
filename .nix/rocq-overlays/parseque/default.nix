@@ -1,13 +1,13 @@
 {
   lib,
-  mkCoqDerivation,
+  mkRocqDerivation,
   which,
   coq,
   version ? null,
 }:
 
 with lib;
-mkCoqDerivation {
+mkRocqDerivation {
   pname = "parseque";
   repo = "parseque";
   owner = "rocq-communiy";
