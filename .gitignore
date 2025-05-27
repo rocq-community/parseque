@@ -34,3 +34,5 @@ nra.cache
 .Makefile.coq.d
 Makefile.coq
 Makefile.coq.conf
+
+result
