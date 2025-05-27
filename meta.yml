@@ -1,14 +1,14 @@
 ---
 fullname: Parseque
 shortname: parseque
-organization: coq-community
+organization: rocq-community
 community: true
 action: true
 
-synopsis: Total parser combinators in Coq
+synopsis: Total parser combinators in Rocq/Coq
 
 description: |-
-  Port of the agdarsec total parser combinator library to Coq.
+  Port of the agdarsec total parser combinator library to Rocq/Coq.
 
 publications:
 - pub_url: https://gallais.github.io/pdf/agdarsec18.pdf
@@ -30,15 +30,13 @@ license:
   fullname: MIT License
   identifier: MIT
 
-supported_coq_versions:
-  text: 8.16 or later
-  opam: '{>= "8.16"}'
+supported_rocq_versions:
+  text: 9.0 or later (for older versions see opam/nix)
+  opam: '{>= "9.0"}'
 
-tested_coq_opam_versions:
+tested_rocq_opam_versions:
 - version: 'dev'
-- version: '8.18'
-- version: '8.17'
-- version: '8.16'
+- version: '9.0'
 
 namespace: parseque
 
@@ -52,7 +50,7 @@ categories:
 documentation: |-
   ## Documentation
 
-  This Coq library is a port of the [agdarsec](https://github.com/gallais/agdarsec)
+  This Rocq/Coq library is a port of the [agdarsec](https://github.com/gallais/agdarsec)
   library for Agda. The core design of agdarsec is described in
   [this paper](https://gallais.github.io/pdf/agdarsec18.pdf), while
   [this blog post](https://gallais.github.io/blog/instrumenting-agdarsec)
