@@ -1,4 +1,4 @@
-From Coq Require Import PeanoNat.
+From Stdlib Require Import PeanoNat.
 
 Definition View (As : nat -> Type) (A : Type) (n : nat) : Type :=
 match n with
@@ -23,7 +23,7 @@ Record SizedType {A : Type} (size : A -> nat) (n : nat) : Type :=
 
 Arguments MkSizedType {_} {_} {_}.
 
-From Coq Require Import List.
+From Stdlib Require Import List.
 Import ListNotations.
 
 Definition SizedList (A : Type) n := SizedType (@length A) n.

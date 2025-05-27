@@ -1,4 +1,4 @@
-From Coq Require Import PeanoNat.
+From Stdlib Require Import PeanoNat.
 From parseque Require Import Category Induction Sized NEList Success EqDec.
 
 Record Parser (Toks : nat -> Type) (Tok : Type)

@@ -1,5 +1,5 @@
 From parseque Require Import Indexed.
-From Coq Require Import PeanoNat.
+From Stdlib Require Import PeanoNat.
 
 Record Box (A : nat -> Type) (n : nat) : Type :=
   MkBox { call : forall m, m < n -> A m }.

@@ -1,5 +1,5 @@
 From parseque Require Import Category Combinators Sized Numbers Indexed StringAsList Success.
-From Coq Require Import String Ascii PeanoNat.
+From Stdlib Require Import String Ascii PeanoNat.
 
 Inductive Singleton (A : Type) : A -> Type :=
   MkSingleton : forall a, Singleton A a.

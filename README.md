@@ -9,8 +9,8 @@ Follow the instructions on https://github.com/coq-community/templates to regener
 [![Code of Conduct][conduct-shield]][conduct-link]
 [![Zulip][zulip-shield]][zulip-link]
 
-[docker-action-shield]: https://github.com/coq-community/parseque/actions/workflows/docker-action.yml/badge.svg?branch=master
-[docker-action-link]: https://github.com/coq-community/parseque/actions/workflows/docker-action.yml
+[docker-action-shield]: https://github.com/rocq-community/parseque/actions/workflows/docker-action.yml/badge.svg?branch=master
+[docker-action-link]: https://github.com/rocq-community/parseque/actions/workflows/docker-action.yml
 
 [contributing-shield]: https://img.shields.io/badge/contributions-welcome-%23f7931e.svg
 [contributing-link]: https://github.com/coq-community/manifesto/blob/master/CONTRIBUTING.md
@@ -23,18 +23,18 @@ Follow the instructions on https://github.com/coq-community/templates to regener
 
 
 
-Port of the agdarsec total parser combinator library to Coq.
+Port of the agdarsec total parser combinator library to Rocq/Coq.
 
 ## Meta
 
 - Author(s):
   - G. Allais (initial)
-- Coq-community maintainer(s):
+- Rocq-community maintainer(s):
   - Wolfgang Meier ([**@womeier**](https://github.com/womeier))
 - License: [MIT License](LICENSE)
-- Compatible Coq versions: 8.16 or later
+- Compatible Rocq/Coq versions: 9.0 or later (for older versions see opam/nix)
 - Additional dependencies: none
-- Coq namespace: `parseque`
+- Rocq/Coq namespace: `parseque`
 - Related publication(s):
   - [agdarsec - Total Parser Combinators](https://gallais.github.io/pdf/agdarsec18.pdf) 
 
@@ -51,7 +51,7 @@ opam install coq-parseque
 To instead build and install manually, do:
 
 ``` shell
-git clone https://github.com/coq-community/parseque.git
+git clone https://github.com/rocq-community/parseque.git
 cd parseque
 make   # or make -j <number-of-cores-on-your-machine> 
 make install
@@ -60,7 +60,7 @@ make install
 
 ## Documentation
 
-This Coq library is a port of the [agdarsec](https://github.com/gallais/agdarsec)
+This Rocq/Coq library is a port of the [agdarsec](https://github.com/gallais/agdarsec)
 library for Agda. The core design of agdarsec is described in
 [this paper](https://gallais.github.io/pdf/agdarsec18.pdf), while
 [this blog post](https://gallais.github.io/blog/instrumenting-agdarsec)

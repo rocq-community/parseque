@@ -5,19 +5,20 @@ opam-version: "2.0"
 maintainer: "palmskog@gmail.com"
 version: "dev"
 
-homepage: "https://github.com/coq-community/parseque"
-dev-repo: "git+https://github.com/coq-community/parseque.git"
-bug-reports: "https://github.com/coq-community/parseque/issues"
+homepage: "https://github.com/rocq-community/parseque"
+dev-repo: "git+https://github.com/rocq-community/parseque.git"
+bug-reports: "https://github.com/rocq-community/parseque/issues"
 license: "MIT"
 
-synopsis: "Total parser combinators in Coq"
+synopsis: "Total parser combinators in Rocq/Coq"
 description: """
-Port of the agdarsec total parser combinator library to Coq."""
+Port of the agdarsec total parser combinator library to Rocq/Coq."""
 
 build: [make "-j%{jobs}%"]
 install: [make "install"]
 depends: [
-  "coq" {>= "8.16"}
+  "rocq-core" {>= "9.0"}
+  "rocq-stdlib" {>= "9.0"}
 ]
 
 tags: [

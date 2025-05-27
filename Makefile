@@ -1,16 +1,16 @@
-all: Makefile.coq
-	@+$(MAKE) -f Makefile.coq all
+all: Makefile.rocq
+	@+$(MAKE) -f Makefile.rocq all
 
-clean: Makefile.coq
-	@+$(MAKE) -f Makefile.coq cleanall
-	@rm -f Makefile.coq Makefile.coq.conf
+clean: Makefile.rocq
+	@+$(MAKE) -f Makefile.rocq cleanall
+	@rm -f Makefile.rocq Makefile.rocq.conf
 
-Makefile.coq: _CoqProject
-	$(COQBIN)coq_makefile -f _CoqProject -o Makefile.coq
+Makefile.rocq: _RocqProject
+	$(COQBIN)rocq makefile -f _RocqProject -o Makefile.rocq
 
-force _CoqProject Makefile: ;
+force _RocqProject Makefile: ;
 
-%: Makefile.coq force
-	@+$(MAKE) -f Makefile.coq $@
+%: Makefile.rocq force
+	@+$(MAKE) -f Makefile.rocq $@
 
 .PHONY: all clean force

@@ -39,7 +39,7 @@ jobs:
     - id: stepGetDerivation
       name: Getting derivation for current job (coq)
       run: "NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link \\\n   --argstr bundle
-        \"8.20\" --argstr job \"coq\" \\\n   --dry-run 2> err > out || (touch fail;
+        \"9.0\" --argstr job \"coq\" \\\n   --dry-run 2> err > out || (touch fail;
         true)\ncat out err\nif [ -e fail ]; then echo \"Error: getting derivation
         failed\"; exit 1; fi\n"
     - id: stepCheck
@@ -51,7 +51,7 @@ jobs:
         status=fetched\" >> $GITHUB_OUTPUT\nfi\n"
     - if: steps.stepCheck.outputs.status != 'fetched'
       name: Building/fetching current CI target
-      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "8.20" --argstr
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
         job "coq"
   parseque:
     needs:
@@ -94,7 +94,7 @@ jobs:
     - id: stepGetDerivation
       name: Getting derivation for current job (parseque)
       run: "NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link \\\n   --argstr bundle
-        \"8.20\" --argstr job \"parseque\" \\\n   --dry-run 2> err > out || (touch
+        \"9.0\" --argstr job \"parseque\" \\\n   --dry-run 2> err > out || (touch
         fail; true)\ncat out err\nif [ -e fail ]; then echo \"Error: getting derivation
         failed\"; exit 1; fi\n"
     - id: stepCheck
@@ -106,20 +106,24 @@ jobs:
         status=fetched\" >> $GITHUB_OUTPUT\nfi\n"
     - if: steps.stepCheck.outputs.status != 'fetched'
       name: 'Building/fetching previous CI target: coq'
-      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "8.20" --argstr
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
         job "coq"
     - if: steps.stepCheck.outputs.status != 'fetched'
+      name: 'Building/fetching previous CI target: stdlib'
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
+        job "stdlib"
+    - if: steps.stepCheck.outputs.status != 'fetched'
       name: Building/fetching current CI target
-      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "8.20" --argstr
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
         job "parseque"
-name: Nix CI for bundle 8.20
+name: Nix CI for bundle 9.0
 on:
   pull_request:
     paths:
-    - .github/workflows/nix-action-8.20.yml
+    - .github/workflows/nix-action-9.0.yml
   pull_request_target:
     paths-ignore:
-    - .github/workflows/nix-action-8.20.yml
+    - .github/workflows/nix-action-9.0.yml
     types:
     - opened
     - synchronize

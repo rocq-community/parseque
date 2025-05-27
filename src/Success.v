@@ -1,5 +1,5 @@
 From parseque Require Import Indexed Sized.
-From Coq Require Import PeanoNat.
+From Stdlib Require Import PeanoNat.
 
 Record Success (Toks : nat -> Type) (Tok : Type) (A : Type) (n : nat) :=
   MkSuccess { value     : A
