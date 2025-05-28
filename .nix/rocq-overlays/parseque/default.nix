@@ -26,7 +26,7 @@ mkRocqDerivation {
       ]
       null;
 
-  release."0.2.2".sha256 = "";
+  release."0.2.2".sha256 = "sha256-O50Rs7Yf1H4wgwb7ltRxW+7IF0b04zpfs+mR83rxT+E=";
 
   releaseRev = v: "v${v}";
 
