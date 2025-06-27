@@ -45,7 +45,7 @@ is via [OPAM](https://opam.ocaml.org/doc/Install.html):
 
 ```shell
 opam repo add coq-released https://coq.inria.fr/opam/released
-opam install coq-parseque
+opam install rocq-parseque
 ```
 
 To instead build and install manually, do:
