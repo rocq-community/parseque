@@ -40,7 +40,7 @@ jobs:
     - id: stepGetDerivation
       name: Getting derivation for current job (parseque)
       run: "NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link \\\n   --argstr bundle
-        \"9.0\" --argstr job \"parseque\" \\\n   --dry-run 2> err > out || (touch
+        \"9.1\" --argstr job \"parseque\" \\\n   --dry-run 2> err > out || (touch
         fail; true)\ncat out err\nif [ -e fail ]; then echo \"Error: getting derivation
         failed\"; exit 1; fi\n"
     - id: stepCheck
@@ -52,15 +52,15 @@ jobs:
         status=fetched\" >> $GITHUB_OUTPUT\nfi\n"
     - if: steps.stepCheck.outputs.status != 'fetched'
       name: 'Building/fetching previous CI target: rocq-core'
-      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.1" --argstr
         job "rocq-core"
     - if: steps.stepCheck.outputs.status != 'fetched'
       name: 'Building/fetching previous CI target: stdlib'
-      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.1" --argstr
         job "stdlib"
     - if: steps.stepCheck.outputs.status != 'fetched'
       name: Building/fetching current CI target
-      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.1" --argstr
         job "parseque"
   rocq-core:
     needs: []
@@ -102,7 +102,7 @@ jobs:
     - id: stepGetDerivation
       name: Getting derivation for current job (rocq-core)
       run: "NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link \\\n   --argstr bundle
-        \"9.0\" --argstr job \"rocq-core\" \\\n   --dry-run 2> err > out || (touch
+        \"9.1\" --argstr job \"rocq-core\" \\\n   --dry-run 2> err > out || (touch
         fail; true)\ncat out err\nif [ -e fail ]; then echo \"Error: getting derivation
         failed\"; exit 1; fi\n"
     - id: stepCheck
@@ -114,16 +114,16 @@ jobs:
         status=fetched\" >> $GITHUB_OUTPUT\nfi\n"
     - if: steps.stepCheck.outputs.status != 'fetched'
       name: Building/fetching current CI target
-      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.0" --argstr
+      run: NIXPKGS_ALLOW_UNFREE=1 nix-build --no-out-link --argstr bundle "9.1" --argstr
         job "rocq-core"
-name: Nix CI for bundle 9.0
+name: Nix CI for bundle 9.1
 on:
   pull_request:
     paths:
-    - .github/workflows/nix-action-9.0.yml
+    - .github/workflows/nix-action-9.1.yml
   pull_request_target:
     paths-ignore:
-    - .github/workflows/nix-action-9.0.yml
+    - .github/workflows/nix-action-9.1.yml
     types:
     - opened
     - synchronize
