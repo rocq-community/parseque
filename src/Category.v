@@ -40,6 +40,31 @@ end.
 
 Arguments MkRawAlternative {_} {_} {_}.
 
+Class RecordToken (M : Type -> Type) (Tok : Type) :=
+  MkRecordToken { _recordToken : Tok -> M unit }.
+
+Definition recordToken {M : Type -> Type} {Tok : Type} `{RecordToken M Tok} : Tok -> M unit :=
+  _recordToken.
+
+Arguments MkRecordToken {_} {_}.
+
+#[global]
+Instance defaultRecordToken (M : Type -> Type) `{RawApplicative M} (Tok : Type)
+  : RecordToken M Tok | 100 :=
+  MkRecordToken (fun _ => pure tt).
+
+Class RawCommit (M : Type -> Type) :=
+  MkRawCommit { _commit : forall A, M A -> M A }.
+
+Definition commit {M : Type -> Type} `{RawCommit M} {A : Type} : M A -> M A :=
+  _commit _.
+
+Arguments MkRawCommit {_}.
+
+#[global]
+Instance defaultRawCommit (M : Type -> Type) : RawCommit M | 100 :=
+  MkRawCommit (fun _ x => x).
+
 Class RawMonad (F : Type -> Type) `{RawApplicative F} :=
   MkRawMonad { _bind : forall A B, F A -> (A -> F B) -> F B }.
 

@@ -9,6 +9,7 @@ Section Numbers.
 
 Context
   {M : Type -> Type} `{RawFunctor M} `{RawApplicative M} `{RawMonad M} `{RawAlternative M}
+  `{RecordToken M ascii}
   {Chars : nat -> Type} `{Sized Chars ascii}
   {n : nat}.
 

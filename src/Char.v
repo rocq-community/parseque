@@ -9,6 +9,7 @@ Section Char.
 Context
   {Chars : nat -> Type} `{Sized Chars ascii}
   {M : Type -> Type} `{RawFunctor M} `{RawApplicative M} `{RawMonad M} `{RawAlternative M}
+  `{RecordToken M ascii}
   {A : Type} {n : nat}.
 
 Definition char (c : ascii) : Parser Chars ascii M ascii n := exact c.
