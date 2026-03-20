@@ -7,9 +7,12 @@ src/EqDec.v
 src/Examples.v
 src/Indexed.v
 src/Induction.v
+src/Monad.v
 src/NEList.v
 src/Numbers.v
 src/Parseque.v
+src/Position.v
+src/Result.v
 src/Running.v
 src/Sized.v
 src/StringAsList.v
