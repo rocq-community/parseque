@@ -13,6 +13,9 @@
   bundles."9.1" = {
     rocqPackages.rocq-core.override.version = "9.1";
   };
+  bundles."9.2" = {
+    rocqPackages.rocq-core.override.version = "9.2";
+  };
 
   ## Cachix caches to use in CI
   cachix.coq = {};
