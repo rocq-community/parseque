@@ -33,10 +33,15 @@ Section Combinators1.
 Context
   {Toks : nat -> Type} {Tok : Type} `{Sized Toks Tok}
   {M : Type -> Type} `{RawFunctor M} `{RawApplicative M} `{RawMonad M} `{RawAlternative M}
+  `{RecordToken M Tok}
   {A B : Type} {n : nat}.
 
 Definition anyTok : Parser Toks Tok M Tok n :=
- MkParser (fun m mlen ts => fromOption (getTok ts)).
+ MkParser (fun m mlen ts =>
+   match getTok ts with
+   | None   => fail
+   | Some s => fmap (fun _ => s) (recordToken (value s))
+   end).
 
 Definition guardM (f : A -> option B) (p : Parser Toks Tok M A n) :
   Parser Toks Tok M B n :=
@@ -91,6 +96,7 @@ Section Combinators2.
 Context
   {Toks : nat -> Type} {Tok : Type} `{Sized Toks Tok}
   {M : Type -> Type} `{RawFunctor M} `{RawApplicative M} `{RawMonad M} `{RawAlternative M}
+  `{RecordToken M Tok}
   {A B : Type} {n : nat}.
 
 Definition ands (ps : NEList (Parser Toks Tok M A n)) : Parser Toks Tok M (NEList A) n :=
@@ -138,6 +144,7 @@ Section Combinators3.
 Context
   {Toks : nat -> Type} {Tok : Type} `{Sized Toks Tok} `{EqDec Tok}
   {M : Type -> Type} `{RawFunctor M} `{RawApplicative M} `{RawMonad M} `{RawAlternative M}
+  `{RecordToken M Tok}
   {A B C : Type} {n : nat}.
 
 Definition app (p : Parser Toks Tok M (A -> B) n)
@@ -161,6 +168,18 @@ Definition betweenm (open : Parser Toks Tok M A n) (close : Box (Parser Toks Tok
   (p : Parser Toks Tok M B n) : Parser Toks Tok M B n := landm (rmand open p) close.
 
 End Combinators3.
+
+Section Commit.
+
+Context
+  {Toks : nat -> Type} {Tok : Type}
+  {M : Type -> Type} `{RawCommit M}
+  {A : Type} {n : nat}.
+
+Definition commitP (p : Parser Toks Tok M A n) : Parser Toks Tok M A n :=
+  MkParser (fun _ mlen toks => commit (runParser p mlen toks)).
+
+End Commit.
 
 Section HChainl.
 

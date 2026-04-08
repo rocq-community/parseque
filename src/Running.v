@@ -1,4 +1,4 @@
-From parseque Require Import Category Combinators Sized Numbers Indexed StringAsList Success.
+From parseque Require Import Category Combinators Sized Numbers Indexed StringAsList Success Result Position Monad.
 From Stdlib Require Import String Ascii PeanoNat.
 
 Inductive Singleton (A : Type) : A -> Type :=
@@ -39,3 +39,28 @@ Definition check : string -> [ Parser (SizedList Tok) Tok M A ] -> Type := fun s
   end.
 
 End Check.
+
+Section CheckResult.
+
+Context
+  {Tok : Type} `{Tokenizer Tok}
+  {E : Type} (toError : Position -> E)
+  {A : Type}.
+
+Definition checkResult : string -> [ Parser (SizedList Tok) Tok (ParsequeT E) A ] -> E + A :=
+  fun s p =>
+  let tokens := (fromText s : list Tok) in
+  let n      := List.length tokens in
+  let input  := mkSizedList tokens in
+  let mr     := runParser (p n) (Nat.le_refl n) input in
+  match runParsequeT mr with
+  | SoftFail e => inl e
+  | HardFail e => inl e
+  | Value (s, pos) =>
+    match Success.size s with
+    | O => inr (Success.value s)
+    | _ => inl (toError pos)
+    end
+  end.
+
+End CheckResult.
