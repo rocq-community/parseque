@@ -65,3 +65,7 @@ library for Agda. The core design of agdarsec is described in
 [this paper](https://gallais.github.io/pdf/agdarsec18.pdf), while
 [this blog post](https://gallais.github.io/blog/instrumenting-agdarsec)
 describes instrumentation.
+
+It may be helpful to seek inspiration from a larger example. See e.g. the
+[WasmCert parser](https://github.com/WasmCert/WasmCert-Coq/blob/master/theories/binary_format_parser.v)
+of the WebAssembly binary format.
