@@ -97,7 +97,15 @@ Definition hexadecimal : Parser Toks ascii (ParsequeT Position) nat n :=
 Definition number : Parser Toks ascii (ParsequeT Position) nat n :=
   binary <|> hexadecimal.
 
+Local Definition multiline_example : Parser Toks ascii (ParsequeT Position) ascii n :=
+  exact "a"%char &> exact "010"%char &> exact "b"%char.
+
 End ErrorReporting.
+
+Local Definition multiline_input (suffix : string) : string :=
+  String.String "a"%char
+    (String.String "010"%char
+      suffix).
 
 (* "0b101" parses as binary 5 *)
 Definition test3 : checkResult id "0b101" (fun n => number) =
@@ -110,3 +118,11 @@ Definition test4 : checkResult id "0xff" (fun n => number) =
 (* "0b0000002": error at "2" (col 8), not at "b" (col 1) *)
 Definition test5 : checkResult id "0b0000002" (fun n => number) =
   inl (MkPosition 0%N 8%N) := eq_refl.
+
+(* "a\nb" parses across a newline *)
+Definition test6 : checkResult id (multiline_input "b") (fun n => multiline_example) =
+  inr "b"%char := eq_refl.
+
+(* "a\nbc": unconsumed input at "c" (line 1, col 1) *)
+Definition test7 : checkResult id (multiline_input "bc") (fun n => multiline_example) =
+  inl (MkPosition 1%N 1%N) := eq_refl.
