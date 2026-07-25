@@ -17,6 +17,13 @@ Definition update (c : ascii) (p : Position) : Position :=
 Definition updates (cs : list ascii) (p : Position) : Position :=
   List.fold_left (fun pos c => update c pos) cs p.
 
+Lemma updates_app : forall xs ys p,
+  updates (xs ++ ys) p = updates ys (updates xs p).
+Proof.
+  intros xs ys p. unfold updates.
+  rewrite List.fold_left_app. reflexivity.
+Qed.
+
 Definition digit_to_ascii (n : N) : ascii :=
   ascii_of_N (48 + n).
 
