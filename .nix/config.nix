@@ -6,7 +6,7 @@
 
   attribute = "parseque";
 
-  default-bundle = "9.2";
+  default-bundle = "9.3";
   bundles."9.0" = {
     rocqPackages.rocq-core.override.version = "9.0";
   };
@@ -15,6 +15,9 @@
   };
   bundles."9.2" = {
     rocqPackages.rocq-core.override.version = "9.2";
+  };
+  bundles."9.3" = {
+    rocqPackages.rocq-core.override.version = "9.3";
   };
 
   ## Cachix caches to use in CI
