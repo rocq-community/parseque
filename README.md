@@ -13,13 +13,13 @@ Follow the instructions on https://github.com/coq-community/templates to regener
 [docker-action-link]: https://github.com/rocq-community/parseque/actions/workflows/docker-action.yml
 
 [contributing-shield]: https://img.shields.io/badge/contributions-welcome-%23f7931e.svg
-[contributing-link]: https://github.com/coq-community/manifesto/blob/master/CONTRIBUTING.md
+[contributing-link]: https://github.com/rocq-community/manifesto/blob/master/CONTRIBUTING.md
 
 [conduct-shield]: https://img.shields.io/badge/%E2%9D%A4-code%20of%20conduct-%23f15a24.svg
-[conduct-link]: https://github.com/coq-community/manifesto/blob/master/CODE_OF_CONDUCT.md
+[conduct-link]: https://github.com/rocq-community/manifesto/blob/master/CODE_OF_CONDUCT.md
 
 [zulip-shield]: https://img.shields.io/badge/chat-on%20zulip-%23c1272d.svg
-[zulip-link]: https://coq.zulipchat.com/#narrow/stream/237663-coq-community-devs.20.26.20users
+[zulip-link]: https://rocq-prover.zulipchat.com/#narrow/channel/237663-Rocq-community-devs-.26-users
 
 
 
@@ -44,7 +44,7 @@ The easiest way to install the latest released version of Parseque
 is via [OPAM](https://opam.ocaml.org/doc/Install.html):
 
 ```shell
-opam repo add coq-released https://coq.inria.fr/opam/released
+opam repo add rocq-released https://rocq-prover.org/opam/released
 opam install rocq-parseque
 ```
 
