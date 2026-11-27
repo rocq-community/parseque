@@ -152,7 +152,7 @@ Definition app (p : Parser Toks Tok M (A -> B) n)
   bind p (fun f => Induction.map (fun _ => map f) _ q).
 
 Definition exact (t : Tok) : Parser Toks Tok M Tok n :=
-  guardM (fun t' => if eq_dec t t' then Some t else None) anyTok.
+  guardM (fun t' => match eq_dec t t' with left _ => Some t | right _ => None end) anyTok.
 
 Definition anyOf (ts : list Tok) : Parser Toks Tok M Tok n :=
   alts (List.map exact ts).
@@ -264,5 +264,3 @@ Notation "p <?& q"   := (lmand p q)    (at level 50, left associativity).
 Notation "p ?&> q"   := (rmand p q)    (at level 50, left associativity).
 Notation "p <*> q"   := (app p q)      (at level 50, left associativity).
 Notation "p <+> q"   := (sum p q)      (at level 41, right associativity).
-
-
