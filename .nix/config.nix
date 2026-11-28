@@ -30,6 +30,7 @@
   bundles."rocq-master" = {
     rocqPackages.CertiRocq.job = false;
     rocqPackages.rocq-core.override.version = "master";
+    rocqPackages.coq.override.version = "master";
     rocqPackages.stdlib.override.version = "master";
     # Follow the dependency branches used by Rocq's master CI.
     rocqPackages.mathcomp-boot.override.version = "master";
@@ -37,7 +38,6 @@
     rocqPackages.rocq-elpi.override.version = "master";
     rocqPackages.flocq.override.version = "master";
     rocqPackages.wasmcert.override.version = "rocq-master";
-    rocqPackages.coq.override.version = "rocq-master";
   };
 
   ## Cachix caches to use in CI
