@@ -33,6 +33,7 @@
     rocqPackages.coq.override.version = "master";
     rocqPackages.stdlib.override.version = "master";
     # Follow the dependency branches used by Rocq's master CI.
+    rocqPackages.coq-ext-lib.override.version = "master";
     rocqPackages.mathcomp-boot.override.version = "master";
     rocqPackages.hierarchy-builder.override.version = "master";
     rocqPackages.rocq-elpi.override.version = "master";
