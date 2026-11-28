@@ -6,9 +6,15 @@ on:
   push:
     branches:
       - master
+    paths-ignore:
+      - '.nix/**'
+      - '.github/workflows/nix-action-*.yml'
   pull_request:
     branches:
       - '**'
+    paths-ignore:
+      - '.nix/**'
+      - '.github/workflows/nix-action-*.yml'
 
 jobs:
   build:

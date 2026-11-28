@@ -29,4 +29,4 @@ Notation "A :-> B" := (IArrow A B)   (at level 20, right associativity).
 Notation "A :+  B" := (ISum A B)     (at level 30).
 Notation "A :*  B" := (IProduct A B) (at level 40).
 Notation ":K A"    := (IConstant A)  (at level 50).
-Notation "[ A ]"   := (IForall A)    (at level 70).
+Notation "[ A ]"   := (IForall A)    (at level 0).

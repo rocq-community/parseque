@@ -8,16 +8,39 @@
 
   default-bundle = "9.3";
   bundles."9.0" = {
+    rocqPackages.CertiRocq.job = false;
     rocqPackages.rocq-core.override.version = "9.0";
+    rocqPackages.coq.override.version = "9.0";
   };
   bundles."9.1" = {
+    rocqPackages.CertiRocq.job = false;
     rocqPackages.rocq-core.override.version = "9.1";
+    rocqPackages.coq.override.version = "9.1";
+    rocqPackages.mathcomp-boot.override.version = "2.5.0";
   };
   bundles."9.2" = {
+    rocqPackages.CertiRocq.job = false;
     rocqPackages.rocq-core.override.version = "9.2";
   };
   bundles."9.3" = {
+    rocqPackages.CertiRocq.job = false;
     rocqPackages.rocq-core.override.version = "9.3";
+    rocqPackages.coq.override.version = "9.3";
+  };
+  bundles."rocq-master" = {
+    rocqPackages.CertiRocq.job = false;
+    rocqPackages.rocq-core.override.version = "master";
+    rocqPackages.coq.override.version = "master";
+    rocqPackages.stdlib.override.version = "master";
+    # Follow the dependency branches used by Rocq's master CI.
+    rocqPackages.ExtLib.override.version = "master";
+    rocqPackages.compcert.override.version = "master";
+    rocqPackages.MenhirLib.override.version = "master";
+    rocqPackages.mathcomp-boot.override.version = "master";
+    rocqPackages.hierarchy-builder.override.version = "master";
+    rocqPackages.rocq-elpi.override.version = "master";
+    rocqPackages.flocq.override.version = "master";
+    rocqPackages.wasmcert.override.version = "rocq-master";
   };
 
   ## Cachix caches to use in CI
